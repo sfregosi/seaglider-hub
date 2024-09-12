@@ -10,7 +10,7 @@ format:
 search: false
 ---
 
-*Last Updated `r Sys.Date()`*
+*Last Updated `{r} Sys.Date()`*
 
 ---
 

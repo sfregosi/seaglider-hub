@@ -10,7 +10,7 @@ search: false
 
 ##### Topic: What to look for when maintaining successful glider flight post-trimming/mid-survey
 
-*Last Updated `r Sys.Date()`*
+*Last Updated `{r} Sys.Date()`*
 
 ---
 

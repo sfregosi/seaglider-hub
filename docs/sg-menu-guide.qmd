@@ -8,7 +8,7 @@ search: false
 
 *DRAFT in progress*
 
-*Last Updated `r Sys.Date()`*
+*Last Updated `{r} Sys.Date()`*
 
 ---
 

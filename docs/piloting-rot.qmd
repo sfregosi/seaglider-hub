@@ -10,7 +10,7 @@ search: false
 
 ##### Topic: Various piloting "nuggets" from Seaglider training
 
-*Last Updated `r Sys.Date()`*
+*Last Updated `{r} Sys.Date()`*
 
 ---
 

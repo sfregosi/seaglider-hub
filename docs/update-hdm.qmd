@@ -10,5 +10,5 @@ search: false
 
 ##### Topic: 
 
-*Last Updated `r Sys.Date()`*
+*Last Updated `{r} Sys.Date()`*
 

@@ -8,7 +8,7 @@ search: false
 
 ##### Topic: Checklist of steps for mission preparation - before shipment and on the day of launch
 
-*Last Updated `r Sys.Date()`*
+*Last Updated `{r} Sys.Date()`*
 
 ---
 

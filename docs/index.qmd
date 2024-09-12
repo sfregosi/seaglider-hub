@@ -6,6 +6,7 @@ format: html
 search: false
 ---
 
+*Last Updated `{r} Sys.Date()`*
 
 #### Disclaimer 
 
