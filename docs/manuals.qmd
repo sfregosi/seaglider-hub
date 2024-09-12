@@ -44,7 +44,7 @@ Errors we see normally:
 - 6th from right, number of VBD errors
 - 2nd from left, number of spurious interrupts. Occasional ones are normal
 
-[![Rev B Errors. Click image to view enlarged version. ](../img/screenshot_fileFormatsManual_errorsRevB.png){#screenshot-errors-revb width=100% fig-align='center'}](https://github.com/sfregosi/seaglider-hub/blob/main/img/screenshot_fileFormatsManual_errorsRevB.png)
+<!-- [![Rev B Errors. Click image to view enlarged version. ](../img/screenshot_fileFormatsManual_errorsRevB.png){#screenshot-errors-revb width=100% fig-align='center'}](https://github.com/sfregosi/seaglider-hub/blob/main/img/screenshot_fileFormatsManual_errorsRevB.png) -->
 
 
 [SG File Formats (RevE).pdf](../ext/SG File Formats (RevE).pdf){target="_blank"}
