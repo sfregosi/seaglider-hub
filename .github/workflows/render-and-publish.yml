@@ -18,7 +18,7 @@ jobs:
         run: Rscript -e 'install.packages(c("rmarkdown", "knitr", "jsonlite", "fontawesome", "tidyverse", "remotes"))'
 
       - name: Install GitHub packages
-        run: Rscript -e 'remotes:install_github("hadley/emo")'
+        run: Rscript -e 'remotes::install_github("hadley/emo")'
         
       - uses: r-lib/actions/check-r-package@v2
       
