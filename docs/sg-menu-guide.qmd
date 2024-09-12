@@ -1,0 +1,53 @@
+---
+title: "Seaglider Menu Guide"
+format:
+  html:
+    toc-title: On this page
+search: false
+---
+
+*DRAFT in progress*
+
+*Last Updated `r Sys.Date()`*
+
+---
+
+## Main Menu Prompts
+
+param - *parameter menu*  
+	tel - *check primary telephone number*  
+	alt tel - *check alternate number*  
+hw - *hardware menu*  
+	modem -  
+		id - *gives SIM info*  
+		remote login and PICODos - *tries to make a phone call (good way to test!)*  
+pre-launch -  
+	sealaunch  
+	self-tests  
+
+
+## Specific Sequence Guides
+
+#### Get directory reading for all pa files
+
+Example pdoscmds.bat for getting dir readout of pa files (this will not print to basestation but will print locally(?))
+
+menu hw/loggers/pm/command string="dir *.dat pm0001a"
+menu hw/loggers/pm/command string="dir *.dat pm0001b"
+menu hw/loggers/pm/command string="dir *.dat pm0002a"
+menu hw/loggers/pm/command string="dir *.dat pm0002b"
+
+
+#### Checking phone numbers
+
+
+#### Removing PMAR logger
+
+
+#### Making a call without a full self test
+
+hw/modem menu? 
+
+
+
+

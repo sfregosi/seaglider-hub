@@ -1,0 +1,175 @@
+---
+title: "Piloting Rules-of-thumb"
+format:
+  html:
+    toc: true
+    toc-depth: 5
+    toc-title: Sections
+search: false
+---
+
+##### Topic: Various piloting "nuggets" from Seaglider training
+
+*Last Updated `r Sys.Date()`*
+
+---
+
+## Miscellaneous bits
+
+-   Wait and hope
+-   Practical operating limits: 60 to 1010 m dives (use `$D_TGT` 990 to turn around by 1000)
+-   Ratio of 3 between `$D_TGT` and `$T_DIVE` gives w=10 cm/s (target vertical velocity)
+-   It only takes +150 cc positive buoyancy to get antenna fully out of the water Only adjust centers half-way following regression results on early dives (so you don't overshoot)
+-   Know the A/D-counts-to-engineering-units conversion factors (or where to find them; e.g., 1 cc VBD = 4 A/D counts)
+-   Respect and regard all warnings and alarms. Don't disable safeties or timeouts
+-   You're only as good as your last dive
+-   The surface is a dangerous place - gliders are much safer underwater so try to minimize time at the surface
+-   If pitch or VBD problems (motor issues) occur, stay at the surface until recovery or the problem is resolved
+-   Launching from large ships at night in rough seas is a one-way trip
+-   Number of surfacings should equal number of dives
+-   If you know something is wrong with the glider and you CAN pick it up, you SHOULD pick it up
+-   During a rough-seas recovery, make sure to get the big-pieces back (e.g., the guts. Wings can be replaced)
+-   Celebrate the recoveries, not the launches
+-   main energy draw (besides acoustics!) is the buoyancy pump - so halving the glider's speed (reducing thrust with `$MAX_BUOY`) doubles its range
+-   Pitch and roll trim are very sensitive
+
+## Glider Trimming
+
+[Seaglider Piloting Tools Manual](https://drive.google.com/drive/u/0/folders/1o403Ac1KveLavWazOBEYEwwSgFjREzeg)
+
+What do each of these plots show, and what should you change based on what the plots show?
+
+![Screenshot of the Seaglider Piloting Tools GUI (called in Matlab with `DiveData`).](../img/screenshot_divedata_gui.png){#screenshot-divedata-gui .Figure fig-align="center" width="600"}
+
+Select the number of the dive you'd like to plot data for in the Dive Numbers section. Select which plots in the 'Plot Selection' section. Our gliders don't have an 02, Fluorometer, Backscatter, PAR, or NTU sensor so we don't need to plot those. Suggested 'Plot Options' are to check 'Auto-tile Plots', but do not check 'Auto-save Plots' or 'Auto-close Plots' because it will save them at the very small tiled size. Press the 'Generate Plots' button to create plots. To generate the entire mission's track in Google Earth, highlight all dives in the 'Dive Numbers' section (hold shift and select first and last dives) and press the 'Show Track' button.
+
+![Diagram showing the values of AD counts and how the correspond to changes in pitch, roll, and buoyancy.](../img/ad_counts_diagram.png){#ad-counts-diagram .Figure fig-align="center" width="600"}
+
+### Diveplot
+
+Look at where W (solid blue line) crosses the horizontal Y=0 line (will need to zoom in on full depth dive), then see where the VBD line (solid black line) is at that time. Another way to think about this - look which of the lines crosses Y=0 first.
+
+-   If VBD (black) line is below W/the horizontal Y=0 line (W line crosses zero line first), glider is LIGHT, increase `$C_VBD` to correct, and vice versa.
+
+-   If VBD (black) line is above W/Y=0 line (VBD line crosses zero first), glider is HEAVY, decrease \$`C_VBD` to correct.
+
+Assess change by looking at when W blue line crosses. How low or high is black line relative to Y=0? Measure this difference, multiply by the cc unit conversion listed in the legend (typically 10 on a deep dive) to get VBD cc's, multiply by 4 to get AD counts, divide by 2 and update `$C_VBD`
+
+Very generally...
+
+-   If dive steeper/shorter duration than climb = TOO HEAVY, decrease `$C_VBD` to lighten (more oil outside of reservoir to be neutral)
+
+-   If climb steeper/shorter duration than dive = TOO LIGHT, increase `$C_VBD` to correct (more oil inside internal reservoir to be neutral)
+
+\*this rule of thumb is from Anatoli/Steve. I think we are supposed to use the W vs VBD line in the diveplot first.
+
+![**Example Diveplot.** Zoomed out showing the full dive duration.](../img/screenshot_diveplot_example2.png){#screenshot-diveplot-example2 .Figure fig-align="center" width="800"}
+
+![**Example Diveplot.** Zoomed in to apogee time (where blue W line crosses y = 0). Blue W line crosses y=0 just before black VBD line crosses. When blue W line crosses y=0, black VBD line is nearly to y=0 (not even 1 unit below) so would not change `$C_VBD` for this glider.](../img/screenshot_diveplot_example1.png){#screenshot-diveplot-example1 .Figure fig-align="center" width="800"}
+
+### Pitch
+
+Looking for the regression line to go through the red "+" at 0,0 and the blue dots to be nicely clustered for the dive (negative pitch values) and climb (positive pitch values).
+
+Compare the set `$C_PITCH` and the Implied Pitch Center values printed as text on the plot
+
+-   Adjust `$C_PITCH` in the direction of the Implied Pitch Center, but only change by half the difference increments
+
+-   E.g., if `$C_PITCH` is 3050 and Implied Pitch Center is 3000, change `$C_PITCH` to 3025
+
+Compare the set `$PITCH_GAIN` and the multiplier for Pitch Control (in units of deg/cm in the equation below the regression line)
+
+-   Adjust `$PITCH_GAIN` in the direction of the multiplier, but only change by half the difference increments
+
+-   E.g., if `$PITCH_GAIN` is 26 and the multiplier is suggesting 20, change `$PITCH_GAIN` to 23
+
+![**Example pitch plot.** `$C_PITCH` (3016) and Implied Pitch Center (3009) are within 10 of each other so I would not make a change, since it would likely not make any difference and it's varied from dive to dive over the last several dives. If the trend is consistent after a few dives, I might think about changing it. `$PITCH_GAIN` (19) and the Pitch Control multiplier (18.8) are the same so would not change.](../img/screenshot_pitch_plot_example.png){#screenshot-pitch-plot-example .Figure fig-align="center"}
+
+### Roll and Roll Rate
+
+Two plots are used to assess roll. Roll is much more affected (compared to Pitch or VBD) by the currents, so roll is much harder to trim and should not be changed drastically based on the results of just a single dive. Look at the possible changes over a few dives in a row and if they all give a consistent suggested improvement, then implement the change.
+
+The Roll plot has three regression lines that ideally go through the red "+" at 0,0 and the data points are generally clustered at either end of the line (points when the glider was actively rolled to either side) and points in the center (when the glider is not actively rolling). All three lines should run parallel/stack on top of one another as closely as possible.
+
+The Roll Rate plot has two crossing regression lines (one for dive and one for climb) and sort of looks like an X-Wing from Star Wars. Ideally the lines cross near 0,0 and are generally evenly distributed/balanced in the plot space.
+
+Compare set values for `$C_ROLL_DIVE` and `$C_ROLL_CLIMB` to the Implied `$C_ROLL_DIVE` and `$C_ROLL_CLIMB` values across BOTH plots.
+
+-   If the direction of change from `$C_ROLL_DIVE` or `$C_ROLL_CLIMB` to the implied centers is the same on both the Roll and Roll Rate plots, adjust the `$C_ROLL_DIVE` or `$C_ROLL_CLIMB` parameter in that direct, but by half of the difference of the smaller of the two implied changes
+
+-   E.g., if `$C_ROLL_DIVE` is set to 2050 and the Roll plot gives an implied `$C_ROLL_DIVE` of 2070 and the Roll Rate plot gives an implied `$C_ROLL_DIVE` of 2082, update `$C_ROLL_DIVE` to 2060
+
+-   If the direction of change across the two plots are contradictory, do not make any changes and monitor over the next few dives to look for consistent patterns
+
+![**Example Roll plot.** This plot suggests decreasing `$C_ROLL_DIVE` and increasing `$C_ROLL_CLIMB` by just a little bit but the plot generally looks good.](../img/screenshot_roll_plot_example.png){#screenshot-roll-plot-example .Figure fig-align="center"}
+
+![**Example Roll Rate plot.** This plot suggests increasing `$C_ROLL_DIVE` and decreasing `$C_ROLL_CLIMB` but the plot generally looks good.](../img/screenshot_roll_rate_example.png){#screenshot-roll-rate-example .Figure fig-align="center"}
+
+So in this case, do not adjust either parameter.
+
+### Optimizing Acoustic Data
+
+-   Want speed through water as low as possible - aim for 25 cm/s
+
+-   Increased vertical velocity = increased speed through water
+
+-   Increased pitch = decreased speed through water
+
+-   Target vertical velocity 10 cm/s
+
+-   Target pitch 30 deg
+
+-   Speed through water calculation in piloting parameters table (`pp`) is estimated as the vertical velocity divided by the sine of vehicle pitch (Fregosi et al. 2020).
+
+### Specifying Glider Flight
+
+Some notes on how cmdfile parameters alter calculated desired glider flight. The dive plot shape is modified by changes in desired vertical speed ($w_d$), desired glide angle, and desired pitch. These are calculated on board the glider from the `$D_TGT`, `$T_DIVE`, `$MAX_BUOY`, and `$GLIDE_SLOPE` parameters and the estimated distance to the next waypoint.
+
+-   Desired vertical speed ($w_d$)
+    -   Calculated using `$D_TGT` + `$T_DIVE`
+    -   $w_d$ (cm/s) = 2\*`$D_TGT*`*100/(`$T_DIVE*`*60).
+    -   Longer `$T_DIVE` = decreased $w_d$
+-   Glide angle
+    -   Can range from 16 to 45 degrees (1:3.5 to 1:1 slope; anything less than 16 deg the glider basically stalls with no forward propulsion)
+    -   Set max that can be commanded with `$GLIDE_SLOPE` parameter
+    -   No equation found in documentation
+    -   Observed that it changes based on:
+        -   `$MAX_BUOY`. Increased `$MAX_BUOY` = decreased desired glide angle
+            -   Going to sink faster, so can make the glide angle more shallow and fly more horizontally while still maintaining sufficient forward propulsion
+        -   $w_d$ Increased desired vertical velocity = increased desired glide angle
+            -   To reach the target depth in the desired dive time at a set thrust, need to angle down to dive faster
+        -   Distance to target. If target waypoint is \<5 km away, steeper desired glide angle (up to max specified by `$GLIDE_SLOPE` parameter)
+            -   To not overshoot the target, need to dive more steeply to cover less distance over ground
+
+-   Pitch angle
+    -   Desired pitch angle calculated from desired glide angle and desired vertical speed
+    -   No equation found in documentation
+    -   Have never observed pitch angle changing without glide angle changing, or vice versa
+
+### Glider Navigation
+
+Two "primary modes" - set with `$HEADING`
+
+-   Constant/fixed heading (specify `$HEADING` with a value between 0 and 360)
+-   Waypoint navigation (set `$HEADING,-1` and it will use *targets* file)
+
+\*Typically use waypoint navigation (`$HEADING,-1` with a *targets* file). Can be useful to use `$HEADING,value` when deploying to send it right offshore
+
+Current-based adjustment modes - set with combo of `$NAV_MODE`, `$KALMAN_USE`, `$FERRY_MAX`, and `$SPEED_FACTOR`
+
+-   **None**
+-   **Kalman filter** - uses past current info collected by KF to correct flight path for next dive
+-   **Ferry angle correction** - uses depth averaged current from previous dive to calculate and apply ferry angle correction to upcoming dive
+-   **Depth averaged current (DAC) relative steering** - calculated heading = DAC direction + bearing
+
+\*Typically use `$NAV_MODE,2` which is ferry angle correction. Then must set `$FERRY_MAX` somewhere between 10 and 45 is usually good but will depend on conditions
+
+### Notes on some cmdfile parameters
+
+Some notes on the more "complicated" cmdfile parameters we use
+
+##### `$NOCOMM_ACTION` 
+
+This defines what the glider should do if it cannot make a complete call during a surfacing. The input is an integer; the integer is chosen as the binary value for up to 9 settings. Typically we use 259 (or 100 000 011) or 3 (11).
+
+![Integer-to-binary-to-integer conversion notes for properlly setting `$NOCOMM_ACTION`.](../img/binary_integer_conversions.png){#binary-integer-conversions .Figure fig-align="center" width="300"}

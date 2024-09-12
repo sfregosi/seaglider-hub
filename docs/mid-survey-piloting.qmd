@@ -1,0 +1,145 @@
+---
+title: "Mid-survey Piloting Guide"
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-title: Sections
+search: false
+---
+
+##### Topic: What to look for when maintaining successful glider flight post-trimming/mid-survey
+
+*Last Updated `r Sys.Date()`*
+
+---
+
+### ERRORS
+
+#### Background
+
+The glider log file reports any errors that occurred in the glider system during the last dive. These are important to watch for to indicate any persistent issues or any critical issues that would require an early recovery
+
+#### What to do
+
+-   View the errors in the piloting parameters (`pp`) variable that is generated through the download script or view the errors at the end of each dive's log file. The error reporting is a series of a bunch of zeros, with counts for each of the errors that occurred. The key for which error each integer represents is in the Seaglider File Formats pdf from Kongsberg/HII. These vary for Rev B (SG639) and Rev E (SG680) gliders.
+    -   Rev B: [Seaglider File Formats Manual (Rev B)](../../ext/Seaglider File Formats Manual (RevB).pdf) - page 11
+    -   Rev E: [SG File Formats (Rev E)](../../ext/SG File Formats (RevE).pdf) - page 16
+-   For Rev B gliders:
+    -   A "2" in the second to last position (second position from the right) is a GPS error, is normal and can be ignored
+-   For Rev E gliders:
+    -   A "3" in the seventh position (from the left) is also a GPS timeout error and can be ignored
+
+<sub>[Back to top](#)</sub>
+
+---
+
+### NOT REACHING THE WAYPOINT
+
+#### Background
+The glider can get close to it's next waypoint but get sort of "stuck" trying to reach it.  
+Each waypoint is set with a 2 km buffer; if the glider is within this buffer it will automatically move on to the next waypoint. But, as the glider gets closer, it calculates desired flight parameters to reduce its distance over ground to try to hit the waypoint. This can end up in sort of a severe response with a really short dive and then it won't get within the 2 km buffer. Also, if the glider surfaces within the 2 km buffer, but drifts outside of it during the call, it will try to go back to that same waypoint (it calculates the distance to the target from the LAST GPS it takes right before it dives), but it's really close already so it has a hard time and may overshoot it.
+
+#### TL;DR
+> Glider gets "stuck" 
+>
+> Glider gets "stuck" trying to get to a waypoint and keeps ending up short or overshooting it.
+
+#### What to do
+
+-   Manually send glider to next waypoint using *pdoscmds.bat* (see template *pdoscmds.bat_resend*)
+-   Create *pdoscmds.bat* file on local machine. Name MUST be just *pdoscmds.bat*
+-   Should contain text (no brackets):  
+    `target [targetName]`  
+    E.g., `target WW03`  
+-   Drag local *pdoscmds.bat* to basestation
+-   After it has been picked up on the next dive, delete *pdoscmds.bat*
+-   There are example *pdoscmds.bat* files on the basestation, labeled with *_exampleInfo*. Copy the text in these as a starting point for *pdoscmds.bat* use
+
+<sub>[Back to top](#)</sub>
+
+---
+
+### NUMBER OF DIVES SAFETY CATCH
+
+#### Background
+
+We use a `$N_DIVES` command as a safety check to limit the total number of dives to make sure the glider is being monitored regularly. When `$N_DIVES` is reached, the glider will go into recovery mode and stay at the surface. If all is going well, we want to incrementally increase this during the survey within the cmdfile so it doesn't go into recovery.\
+If the glider does reach `$N_DIVES` and goes into recovery, it will sit at the surface and make repeated calls (multiple text messages coming through). We want to get it back diving as soon as possible.
+
+#### What to do
+
+-   Monitor the number of dives and update the `$N_DIVES` parameter in the cmdfile to keep the glider diving as it approaches that `$N_DIVES`\
+    E.g., if `$N_DIVES,40` and the glider is on Dive 38, update with `$N_DIVES,50`
+-   If glider goes into recovery because it reached `$N_DIVES`, update `$N_DIVES` in cmdfile, and change last parameter in cmdfile to `$RESUME`
+-   After that cmdfile containing the new `$N_DIVES` and `$RESUME` command has been picked up and the glider has started to dive, be sure to **UPDATE** cmdfile with `$GO`
+
+<sub>[Back to top](#)</sub>
+
+---
+
+### SEAFLOOR DEPTH 
+
+#### Background 
+Depending on the survey region and goals, the glider may need to be flown in an area where the seafloor depth is \<1000 m. The glider is not flying with any sort of altimeter (that makes noise we do not want to add to the acoustic record) so the pilot must manually adjust the target depth, \$D_TGT in the cmdfile to ensure the glider does not hit the seafloor.
+
+#### What to do 
+-   Always look 24-48 hours ahead to see when the glider will approach an area with shallower depths 
+-   Keep the glider max depth about 100 m above the estimated seafloor depth (from bathymetric maps) because they may not be perfectly accurate 
+-   Try to estimate when the glider will reach that area by recording the expected surfacing times and distances to that point, and updating as the glider gets closer to the 1000 m isobath 
+    -   Example Pilot's Log entries:  
+        Dive 12 expect up at 1200 UTC/0500 PDT/0200 HST, 12 km from 1000 m isobath that quickly rises to 900 m - *actually up at 1205 UTC, 11.5 km from isobath*  
+        Dive 13 expect up at 1700 UTC/1000 PDT/0700 HST, 8 km from 1000 m isobath  
+        \*\*\*\*at this rate, need to transfer updated cmdfile with new `$D_TGT,800 $T_DIVE,290 $T_MISSION,320` to basestation BEFORE Dive 14 surfacing expected at 2200 UTC****  
+        Dive 14 expect up at 2200 UTC/1500 PDT/1200 HST, 4 km from 1000 m  
+        Dive 15 expect up at 0300 UTC/2200 PDT/1700 HST, at 1000 m isobath  
+-   Update the cmdfile on the basestation with the reduced depth (`$D_TGT`) and reduced dive time (`$T_DIVE`; nominally 1/3 `$D_TGT` but may be longer or shorter depending on the ideal flight parameters) and mission time (`$T_MISSION`, set to 20-30 minutes longer than `$T_DIVE`) at least one dive **BEFORE** the glider will dive through the shallower area (since cmdfiles have to be planned two dives ahead) and **DOUBLE CHECK** that the cmdfile transferred to the basestation to be sure it will take 
+-   While it is better to keep the glider diving as deep as possible, better to err on the side of caution with updating `$D_TGT`
+
+<sub>[Back to top](#)</sub>
+
+---
+
+### FILE CONVERSION ISSUES
+
+#### Background
+
+If the glider disconnects its call before fully uploading all parts of all binary files (e.g., *lz.r*, *dz.r*) then when the basestation tries to process the files it will not work. You will get an email with the subject CONVERSION PROBLEMS. The email will provide additional information on what file had the issue, and will point to the *baselog\_\[date/timestampnumbers\]* file on the basestation that will have more detail. It may suggest a *pdoscmds.bat* resend command (e.g., `resend_dive /d 36` would mean to resend dive 36 data files).\
+A full list of pdoscmds.bat commands can be found in the [Extended PicoDOS Reference Manual](../ext/Extended%20PicoDOS%20Reference%20Manual.pdf).
+
+#### What to do
+
+-   Manually resend the missed files using pdoscmds.bat
+    -   Create *pdoscmds.bat* file on local machine. Name MUST be just *pdoscmds.bat*
+    -   Should contain text (no brackets): `resend_dive /[filetypeletter] [divenumber]`\
+        E.g., `resend_dive /l 45`
+    -   Drag local *pdoscmds.bat* to basestation
+-   After *pdoscmds.bat* has been picked up on the next dive, delete it
+-   There are example *pdoscmds.bat* files on the basestation and in the seaglider-resources repository in the [*ext/example_piloting_files folder*](https://github.com/sfregosi/seaglider-resources/tree/main/ext/example_piloting_files); they are named as the main file name but labeled for use with \*\_exampleInfo\*. Copy the text in these as a starting point for pdoscmds.bat use
+
+<sub>[Back to top](#)</sub>
+
+---
+
+### CHANGING PMAR ACTIVECARD
+
+#### Background
+
+As the SD cards storing the PMAR acoustic data fill up, it is best to manually switch to the next card to avoid any gaps in recording. PMAR will automatically switch to the next card when one fills up, but if the first card fills part of the way through a dive, the switch will not be made until the next dive so the rest of that dive will not have any recordings. This could lead to gaps of no more than 5-6 hours, so is not terrible but should be avoided if possible.\
+The switch to the next card does not happen at exactly 100% capacity; instead UW suggests not letting the cards fill past 93% capacity. For our current setup, that means when there is 35 GB or less free space remaining. The Battery and Free Space plots generated by the downloading script has a dashed horizontal line at this 35 GB cut off. The cards are numbered starting with 0, so with 4 cards, they are labeled as cards 0, 1, 2, and 3
+
+#### What to do
+
+-   Monitor remaining free space and when there is about 70 GB remaining. Each dive uses up 5-7 GB of data, so this gives about 5-7 dives/24 hours to plan ahead.
+-   Project forward based on current use levels and identify which dive will end with near 35 GB free space remaining.
+-   Use *pdoscmds.bat* to update the active card.
+    -   Create a text file on the local computer, named *pdoscmds.bat* and paste in the following text, but replace the integer card number at the end of the first line (in this example, card 1, meaning the second card) with whatever card you want to use next `menu hw/loggers/pm/command string="active_card 1"`\
+        `menu hw/loggers/pm/command string=active_card`
+        -   The first line tells PMAR to switch the active card to card `X`
+        -   The second line echoes out which card is active just as a double check. This functionality only works in the Rev B gliders (SG607/SG639); nothing prints out in the *.pdos* file for the Rev E gliders (SG679/SG680)
+    -   Copy the *pdoscmds.bat* file over to the basestation with WinSCP during the dive that is projected to have near 35 GB free space remaining at the end. Confirm it looks good by opening the basestation copy and double checking
+    -   After the *pdoscmds.bat* has been picked up, confirm the glider parsed the commands by looking at the *.pdos* file created during that surfacing (e.g., *p6800084.000.pdos*) and confirming it executed the commands. If so, the *pdoscmds.bat* can be removed from the basestation
+-   For Rev E gliders (SG679/SG680), the active card is not output into the log file, so the active card parameter also has to be manually updated in the downloads script by adding a new row to the `dPARAMS.activeCard` matrix. This variable contains the dive number when the switch was made, and the active card that was used starting with that dive number.
+    -   E.g., `dPARAMS.activeCard = [1 0; 82 1]; % dive number for first dive with that card active`
+    -   Dive 1 had card 0 as the active card, Dive 82 was when the switch was made and card 1 became the active card.
+    -   This doesn't have to be done for SG607/SG639

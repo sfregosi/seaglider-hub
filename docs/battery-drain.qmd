@@ -1,0 +1,11 @@
+---
+title: "Battery Drain Experiment"
+format: html
+search: false
+---
+
+This page will is the placeholder for the results and any notes from the "Battery Drain Experiment" where Jay will run the previously used (removed during refurbishment) batteries down until fully drained so we can better understand how low the batteries can actually get and how long we can potentially run a survey (beyond the 8 weeks we have done thus far). 
+
+We have used batteries from SGXXX, SGXXX and SGXXX. 
+
+Selene will put some summary info on these deployments here, as well as links to the trim sheets. 

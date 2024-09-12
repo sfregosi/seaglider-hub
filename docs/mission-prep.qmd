@@ -1,0 +1,74 @@
+---
+title: "Mission preparation"
+description: |
+  Checklist of steps for mission preparation - before shipment and on the day of launch
+format: html
+search: false
+---
+
+##### Topic: Checklist of steps for mission preparation - before shipment and on the day of launch
+
+*Last Updated `r Sys.Date()`*
+
+---
+
+## Before shipment
+
+## Day of launch
+
+#### Key Info:
+
+#### Supplies:
+- Laptop with Putty, WinSCP, Matlab, text editor
+
+#### Goals:
+- Review self test files
+- Prepare final cmdfile, targets, science file, pmar file, sg_calib_constants.m
+- Clean up basestation
+- Set up desktop file storage
+- Set up Matlab download scripts 
+
+#### Tasks: 
+
+##### Review any pre-mission self test files
+
+- Look for critical errors, check parameters that need to be changed
+
+
+
+##### Clean up basestation
+- Connect to the basestation via WinSCP to view current status of basestation files
+- If old files are on there, need to clean them up!
+- Create a subdirectory within that glider’s folder. Name based on date, mission, or selftests
+- Move all old data in one step
+  - Open terminal window to basestation and login with password
+  - Navigate to main directory by typing `cd /` and hitting *enter*
+  - Type `usr/local/basestation/MoveData.py -m <current data location> -t <new data location>` into the terminal windown and hit *enter*
+    - `<current location>` is usually `/home/sgxxx`
+    - `<new location>` should be `/home/sgxxx/YYYY-MM-DD_deployment_location`
+(i.e., `/home/sg607/2023-04-25_deployment_MHI`)
+    - some text will print confirming it worked, and now `/home/sgxxx` will be mostly cleaned up and ready for new mission
+    - this script **does not** move wisper files (`ws0001az.x00`, etc) and so those must be moved manually
+
+##### Upload final piloting files
+- [ ] Sg_calib_constants.m	
+  - Change mission name
+  - Check water density and mass
+  - Check calibration constants
+  - Check hydrodynamic params
+- [ ] Upload `cmdfile`
+  - Check all params and updated where needed for first short dive
+- [ ] Check `.pagers`
+- [ ] Check `pmar.cnf` (if PMAR system only)
+- [ ] Check `science`
+- [ ] Check `pdoscmds.bat`
+  - Shouldn't need one to start a mission
+
+
+##### Set up Matlab download script
+- Check for agate updates
+- Create download script
+- Create folder structure on piloting computer
+
+
+#### Issues

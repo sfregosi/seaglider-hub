@@ -1,0 +1,52 @@
+---
+title: "Manuals"
+description: |
+  Links and guide to some relevant manuals
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-title: Sections
+search: false
+---
+
+*Last Updated `r Sys.Date()`*
+
+---
+
+Ideally, this page will just link directly to the [IOP Seaglider resources page](https://iop.apl.washington.edu/iopsg/){target="_blank"}. 
+
+But for now, some potentially useful files are linked here/included in this repository. 
+
+Copies of the files linked below can also be found in the [piloting resources](https://drive.google.com/drive/u/0/folders/1aG8QkLzA80qrKjjVgM2wp6Dndf1uq4Hj){target="_blank"} Google Drive Folder. 
+
+#### Piloting parameters
+
+[Piloting Parameters (Rev B) PDF](../ext/Piloting Parameters (RevB).pdf){target="_blank"}
+
+[Piloting Parameters (Rev E) PDF - Hydroid](../ext/Piloting Parameters (RevE).pdf){target="_blank"}
+
+[Piloting Parameters (Rev E) - website - seaglider.pub](https://noaaosu.seaglider.pub/parms){target="_blank"}
+
+#### File formats
+
+[Seaglider File Formats Manual (RevB).pdf](../ext/Seaglider File Formats Manual (RevB).pdf){target="_blank"}
+
+Describes in detail what each line in the .log file means
+e.g., page 11, lists what each number after `$ERRORS,` means
+
+Errors we see normally:
+
+- 2nd from right, no GPS fix by timeout
+- 3rd from right, number of VBD retries
+- 4th from right, number of roll retries
+- 5th from right, number of pitch retries
+- 6th from right, number of VBD errors
+- 2nd from left, number of spurious interrupts. Occasional ones are normal
+
+[![Rev B Errors. Click image to view enlarged version. ](../img/screenshot_fileFormatsManual_errorsRevB.png){#screenshot-errors-revb width=100% fig-align='center'}](https://github.com/sfregosi/seaglider-hub/blob/main/img/screenshot_fileFormatsManual_errorsRevB.png)
+
+
+[SG File Formats (RevE).pdf](../ext/SG File Formats (RevE).pdf){target="_blank"}
+
+

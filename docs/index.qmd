@@ -1,0 +1,97 @@
+---
+title: "seaglider-hub"
+description: |
+  Central resource for links and knowledge sharing for working with Seagliders. 
+format: html
+search: false
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE,}
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.align = 'center')
+
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clone fa-2x\" style=\"color: #301e64\"></i>",
+    success_text = "<i class=\"fa fa-check fa-2x\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times fa-2x\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+
+library(fontawesome)
+```
+
+#### Disclaimer 
+
+These guides are specific to our program and so may not work or be applicable for others. These are notes, tips, and tricks that we have learned over the years but may not be what the latest 'official' training or documentation says (especially with Seaglider service and support changing hands many times over the last few years!). So, take them with a grain of salt. The content is presented 'as-is' and we are not responsible for its use. 
+
+See UW/IOPs [resources](https://iop.apl.washington.edu/iopsg/){target="_blank"} page for the latest documentation from the Seaglider manufacturer. 
+
+## Quick Links
+
+### NOAA/OSU Bioacoustic Seagliders
+
+[Bioacoustic Seaglider Group Google Drive Folder](https://drive.google.com/drive/u/0/folders/1o5tBvvzWy1_2H_V5V2o6sc1k6ebWqKBZ){target="_blank"}
+
+[Glider Deployment Tracker](https://docs.google.com/spreadsheets/d/1uLQ3ruYjz6B8DeGhf-izHFKscgNWnvMT/edit?gid=103159462#gid=103159462){target="_blank"}
+
+[Glider Inventory and Status](https://docs.google.com/spreadsheets/d/1xWwiAhgmveYMMWQAbaoxCfCmXcr7wRoYpIEOa1BkC6U/edit#gid=0){target="_blank"}
+
+<sub>[Back to top](#)</sub>
+
+## Resource Document Guide
+
+##### [Accessing Piloting Tools](accessing-piloting-tools.qmd)
+
+Detailed instructions for downloading and installing the necessary programs to run Selene's piloting tools (AGATE), the Seaglider Piloting Tools, and all Mathworks FileExchange dependencies; how to access these tools using GitHub; where to download bathymetry map
+
+##### [Battery drain experiment](battery-drain.qmd)
+
+This is the landing page for any notes and the results of fully draining the previously used glider batteries.
+
+##### Connecting to the OSU Basestation
+
+Detailed instructions for connecting to the basestation including connecting to the OSU VPN, viewing basestation files with WinSCP, and setting up a PuTTY terminal connection to the basestation
+
+##### Daily Piloting Routine
+
+Overview of what a typical piloting day looks like when the glider is well-trimmed and just being monitored.
+
+##### [Mid-survey Piloting Guide](mid-survey-piloting.qmd)
+
+Key things to watch out for when piloting the glider in the middle of a survey, where the goals are just maintaining the survey and flight generally as is; detailed instructions to tackle each of these events if they come up; certain sections referenced within the Piloting Daily Process outline below
+
+**Sections covered:**  
+    -   Errors  
+    -   Not reaching the waypoint  
+    -   Number of dives safety catch  
+    -   Seafloor depth  
+    -   File conversion issues  
+    -   Changing PMAR active card  
+
+
+##### [Piloting Rules-of-thumb](piloting-rot.qmd)
+
+General hints and lessons learned when it comes to trimming and general piloting - what parameter changes what glider behavior and how does the glider respond
+
+##### Seaglider Bench Testing
+[Seaglider Bench Testing Google Doc](https://docs.google.com/document/d/11gatLWEzaEYsPrs6hlMZghuTMlstvc1UJiQ-AXBxNOo/edit#)
+
+##### [Seaglider Menu Guide](sg-menu-guide.html)
+Work in progress... *(and possibly out of date)*
+
+##### Setting up a Computer for Piloting
+
+### [Updating Seaglider Hydrodynamic Parameters](update-hdm.qmd)
+Work in progress... *(and possibly out of date)*
+
+##### [Water Density Stuff](water-density.qmd)
+Empty still...
+
+Messy notes to self about getting water density info for a new deployment location and how to make sure the glider can handle it as ballasted Needs to be cleaned up
+
+
+## Last updated {.appendix}
+
+`r fa(name = "calendar-check")` `r format(Sys.Date(), "%d %B %Y")`

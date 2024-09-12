@@ -1,0 +1,18 @@
+---
+title: "Accessing Piloting Tools"
+format: html
+search: false
+---
+
+##### Topic: Detailed instructions (suggested) for accessing *__agate__* (Acoustic Glider Tools and Environment) using GitHub
+
+*Last Updated `r Sys.Date()`*
+
+See the *__agate__* documentation website: [https://sfregosi.github.io/agate/](https://sfregosi.github.io/agate/)
+
+
+
+##### ***GitHub resources:***
+
+PSAW III video <https://drive.google.com/file/d/1tjlylyX9tOKeDJnuOyZ86Jhn5QIn9CuC/view> (info on what is version control/GitHub/how to use it)
+

@@ -1,0 +1,59 @@
+project:
+  type: website
+
+website:
+  page-navigation: true
+  title: 'seaglider-hub'
+  repo-url: "https://github.com/sfregosi/seaglider-hub"
+  repo-actions: [edit, issue]
+  # favicon: images/favicon.ico
+  
+  sidebar:
+    title: 'sg hub'
+    background: $beaver-orange
+    # logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
+    # favicon: images/favicon.ico
+    pinned: true
+    align: center
+    tools: 
+      - icon: github
+        href: https://github.com/sfregosi/seaglider-hub
+    style: 'docked'
+    search: true
+    collapse-level: 2
+    contents:
+      - href: index.qmd
+        text: home
+      - href: manuals.qmd
+        text: manuals
+      - text: "---"
+      - section: 'piloting guides'
+        contents:
+          - href: accessing-piloting-tools.qmd
+            text: piloting tools
+          - href: mission-prep.qmd
+            text: mission preparation
+          - href: piloting-rot.qmd
+            text: piloting rules of thumb
+          - href: mid-survey-piloting.qmd
+            text: midsurvey piloting process
+          - href: sg-menu-guide.qmd
+            text: seaglider menu guide
+            
+  page-footer:
+    right: 'This page is built with [Quarto](https://quarto.org/).'
+    left: '&copy; CC-1.0'
+    
+format:
+  html:
+    theme: 
+      light: theme.scss
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-depth: 4
+    link-external-newwindow: true
+    embed-resources: true
+    
+    

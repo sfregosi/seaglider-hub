@@ -1,0 +1,34 @@
+---
+title: "About"
+editor_options: 
+  chunk_output_type: console
+---
+
+About this site
+
+```{r}
+1 + 1
+```
+
+```{r load-packages}
+library(emo)
+library(tidyverse)
+```
+
+```{r emoji test}
+emo::ji("red heart")
+```
+
+```{r tibble}
+
+```
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
