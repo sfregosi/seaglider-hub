@@ -6,23 +6,6 @@ editor_options:
 
 About this site
 
-```{r}
-1 + 1
-```
-
-```{r load-packages}
-library(emo)
-library(tidyverse)
-```
-
-```{r emoji test}
-emo::ji("red heart")
-```
-
-```{r tibble}
-
-```
-
 # Heading 1
 
 ## Heading 2
