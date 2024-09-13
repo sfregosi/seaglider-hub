@@ -1,6 +1,8 @@
 project:
   type: website
-
+  resources: 
+    - "../img/*"
+    - "ext/*"
 website:
   page-navigation: true
   title: 'seaglider-hub'
