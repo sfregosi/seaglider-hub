@@ -23,9 +23,9 @@ Copies of the files linked below can also be found in the [piloting resources](h
 
 #### Piloting parameters
 
-[Piloting Parameters (Rev B) PDF](../ext/Piloting Parameters (RevB).pdf){target="_blank"}
+[Piloting Parameters (Rev B) PDF](ext/Piloting Parameters (RevB).pdf){target="_blank"}
 
-[Piloting Parameters (Rev E) PDF - Hydroid](../ext/Piloting Parameters (RevE).pdf){target="_blank"}
+[Piloting Parameters (Rev E) PDF - Hydroid](ext/Piloting Parameters (RevE).pdf){target="_blank"}
 
 [Piloting Parameters (Rev E) - website - seaglider.pub](https://noaaosu.seaglider.pub/parms){target="_blank"}
 
