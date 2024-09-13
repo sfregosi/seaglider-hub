@@ -2,6 +2,7 @@
 title: "Accessing Piloting Tools"
 format: html
 search: false
+engine: knitr
 ---
 
 ##### Topic: Detailed instructions (suggested) for accessing *__agate__* (Acoustic Glider Tools and Environment) using GitHub

@@ -4,6 +4,7 @@ description: |
   Central resource for links and knowledge sharing for working with Seagliders. 
 format: html
 search: false
+engine: knitr
 ---
 
 *Last Updated `{r} Sys.Date()`*
@@ -64,7 +65,7 @@ General hints and lessons learned when it comes to trimming and general piloting
 ##### Seaglider Bench Testing
 [Seaglider Bench Testing Google Doc](https://docs.google.com/document/d/11gatLWEzaEYsPrs6hlMZghuTMlstvc1UJiQ-AXBxNOo/edit#)
 
-##### [Seaglider Menu Guide](sg-menu-guide.html)
+##### [Seaglider Menu Guide](sg-menu-guide.qmd)
 Work in progress... *(and possibly out of date)*
 
 ##### Setting up a Computer for Piloting
@@ -78,6 +79,3 @@ Empty still...
 Messy notes to self about getting water density info for a new deployment location and how to make sure the glider can handle it as ballasted Needs to be cleaned up
 
 
-## Last updated {.appendix}
-
-`r fa(name = "calendar-check")` `r format(Sys.Date(), "%d %B %Y")`

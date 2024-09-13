@@ -6,6 +6,7 @@ format:
     toc-depth: 5
     toc-title: Sections
 search: false
+engine: knitr
 ---
 
 ##### Topic: Various piloting "nuggets" from Seaglider training

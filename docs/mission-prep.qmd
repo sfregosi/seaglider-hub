@@ -4,6 +4,7 @@ description: |
   Checklist of steps for mission preparation - before shipment and on the day of launch
 format: html
 search: false
+engine: knitr
 ---
 
 ##### Topic: Checklist of steps for mission preparation - before shipment and on the day of launch

@@ -2,6 +2,7 @@
 title: "About"
 editor_options: 
   chunk_output_type: console
+engine: knitr
 ---
 
 About this site

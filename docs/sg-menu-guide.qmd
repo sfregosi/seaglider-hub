@@ -4,6 +4,7 @@ format:
   html:
     toc-title: On this page
 search: false
+engine: knitr
 ---
 
 *DRAFT in progress*
