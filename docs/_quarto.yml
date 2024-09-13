@@ -11,7 +11,7 @@ website:
   # favicon: images/favicon.ico
   
   sidebar:
-    title: 'sg hub'
+    title: 'seaglider hub'
     background: $beaver-orange
     # logo: "https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png"
     # favicon: images/favicon.ico
