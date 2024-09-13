@@ -31,7 +31,7 @@ Copies of the files linked below can also be found in the [piloting resources](h
 
 #### File formats
 
-[Seaglider File Formats Manual (RevB).pdf](../ext/Seaglider File Formats Manual (RevB).pdf){target="_blank"}
+[Seaglider File Formats Manual (RevB).pdf](ext/Seaglider File Formats Manual (RevB).pdf){target="_blank"}
 
 Describes in detail what each line in the .log file means
 e.g., page 11, lists what each number after `$ERRORS,` means
@@ -48,6 +48,6 @@ Errors we see normally:
 <!-- [![Rev B Errors. Click image to view enlarged version. ](../img/screenshot_fileFormatsManual_errorsRevB.png){#screenshot-errors-revb width=100% fig-align='center'}](https://github.com/sfregosi/seaglider-hub/blob/main/img/screenshot_fileFormatsManual_errorsRevB.png) -->
 
 
-[SG File Formats (RevE).pdf](../ext/SG File Formats (RevE).pdf){target="_blank"}
+[SG File Formats (RevE).pdf](ext/SG File Formats (RevE).pdf){target="_blank"}
 
 

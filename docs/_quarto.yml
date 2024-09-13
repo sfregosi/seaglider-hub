@@ -1,7 +1,7 @@
 project:
   type: website
   resources: 
-    - "../img/*"
+    - "/img/*"
     - "ext/*"
 website:
   page-navigation: true
