@@ -35,6 +35,8 @@ website:
             text: piloting tools
           - href: mission-prep.qmd
             text: mission preparation
+          - href: launch-prep.qmd
+            text: launch day prep
           - href: piloting-rot.qmd
             text: piloting rules of thumb
           - href: mid-survey-piloting.qmd
