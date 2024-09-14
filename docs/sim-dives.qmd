@@ -1,0 +1,23 @@
+---
+title: "Sim dies"
+format: html
+search: false
+engine: knitr
+---
+
+##### Topic: Running simulation (sim) dives for testing
+
+*Last Updated `{r} Sys.Date()`*
+
+---
+
+
+- Set up the basestation as you would for a real mission. This means either use `NewMission.py` on seaglider.pub/basestation3 or be sure to clean up the home directory (with `MoveData.py`) on the OSU basestation. If this is not done, all existing dive files in that directory **WILL BE OVERWRITTEN!!**
+  - Name this following the basestation format with `YYYY-MM-DD_sim_dives` so that they sort in proper order
+- Use `Test Launch` from the Seaglider serial menu
+- Upload a `cmdfile` that has `$SIM_W,0.1` (for 10 cm/s dives)
+  - There may be a `$SIM_PITCH` parameter depending on Rev B/Rev E? *Need to look into this...*
+- Can leave the serial cable connected or disconnect as normal
+- The glider will call and upload files via Iridium like normal
+  - If no sky access, can set `$N_NO_SURFACE` to a large negative number. The glider will skip Iridium/GPS so dives must be monitored via serial cable and files will have to be retrieved via serial after the sim dives are complete
+- Make sure to start another new mission on the basestation when actually launching! 

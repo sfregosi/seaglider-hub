@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>seaglider-hub - Mission preparation</title>
+<title>seaglider-hub - Launch day preparation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,6 +18,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -1620,8 +1654,6 @@ async function fuseSearch(query, fuse, fuseOptions) {
 }
 </script>
 <meta name="quarto:offset" content="./">
-<link href="./launch-prep.html" rel="next">
-<link href="./accessing-piloting-tools.html" rel="prev">
 <script>const sectionChanged = new CustomEvent("quarto-sectionChanged", {
   detail: {},
   bubbles: true,
@@ -4655,124 +4687,41 @@ vertical-align: -.125em;
 
 </head>
 
-<body class="nav-sidebar docked">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./accessing-piloting-tools.html">piloting guides</a></li><li class="breadcrumb-item"><a href="./mission-prep.html">mission preparation</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
-</header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">seaglider hub</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/sfregosi/seaglider-hub" title class="quarto-navigation-tool px-1" aria-label><i class="bi bi-github"></i></a>
-  <a href class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./manuals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">manuals</span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">piloting guides</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./accessing-piloting-tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">piloting tools</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./mission-prep.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">mission preparation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./launch-prep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">launch day prep</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./piloting-rot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">piloting rules of thumb</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./mid-survey-piloting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">midsurvey piloting process</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sg-menu-guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">seaglider menu guide</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#before-shipment" id="toc-before-shipment" class="nav-link active" data-scroll-target="#before-shipment">Before shipment</a></li>
+  <li><a href="#supplies" id="toc-supplies" class="nav-link active" data-scroll-target="#supplies">Supplies</a></li>
+  <li><a href="#task-list" id="toc-task-list" class="nav-link" data-scroll-target="#task-list">Task list</a></li>
+  <li><a href="#task-details" id="toc-task-details" class="nav-link" data-scroll-target="#task-details">Task details</a>
+  <ul>
+  <li><a href="#review-any-pre-mission-self-test-files" id="toc-review-any-pre-mission-self-test-files" class="nav-link" data-scroll-target="#review-any-pre-mission-self-test-files">Review any pre-mission self test files</a></li>
+  <li><a href="#prep-basestation" id="toc-prep-basestation" class="nav-link" data-scroll-target="#prep-basestation">Prep basestation</a>
+  <ul class="collapse">
+  <li><a href="#basestation3seaglider.pub-prep" id="toc-basestation3seaglider.pub-prep" class="nav-link" data-scroll-target="#basestation3seaglider.pub-prep">Basestation3/seaglider.pub prep</a></li>
+  <li><a href="#osu-basestation-prep" id="toc-osu-basestation-prep" class="nav-link" data-scroll-target="#osu-basestation-prep">OSU basestation prep</a></li>
+  </ul></li>
+  <li><a href="#prep-and-upload-final-piloting-files" id="toc-prep-and-upload-final-piloting-files" class="nav-link" data-scroll-target="#prep-and-upload-final-piloting-files">Prep and upload final piloting files</a></li>
+  <li><a href="#set-up-local-file-structure" id="toc-set-up-local-file-structure" class="nav-link" data-scroll-target="#set-up-local-file-structure">Set up local file structure</a></li>
+  <li><a href="#set-up-agate" id="toc-set-up-agate" class="nav-link" data-scroll-target="#set-up-agate">Set up <em><strong>agate</strong></em></a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sfregosi/seaglider-hub/edit/main/mission-prep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sfregosi/seaglider-hub/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sfregosi/seaglider-hub/edit/main/sim-dives.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sfregosi/seaglider-hub/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./accessing-piloting-tools.html">piloting guides</a></li><li class="breadcrumb-item"><a href="./mission-prep.html">mission preparation</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mission preparation</h1>
+<h1 class="title">Launch day preparation</h1>
 </div>
 
 
@@ -4789,22 +4738,170 @@ vertical-align: -.125em;
 </header>
 
 
-<section id="topic-checklist-of-steps-for-broad-mission-preparation-before-shipment-or-launch-day" class="level5">
-<h5 class="anchored" data-anchor-id="topic-checklist-of-steps-for-broad-mission-preparation-before-shipment-or-launch-day">Topic: Checklist of steps for broad mission preparation before shipment or launch day</h5>
+<section id="topic-checklist-of-steps-and-detailed-instructions-for-final-preparations-before-mission-launch-day" class="level5">
+<h5 class="anchored" data-anchor-id="topic-checklist-of-steps-and-detailed-instructions-for-final-preparations-before-mission-launch-day">Topic: Checklist of steps and detailed instructions for final preparations before mission launch day</h5>
 <p><em>Last Updated 2024-09-14</em></p>
 <hr>
+<p><em>This process, particularly prepping the basestation and some file formats, looks different if using the OSU basestation or seaglider.pub/basestation3. These differences are noted in the task list details below</em></p>
 </section>
-<section id="before-shipment" class="level1">
-<h1>Before shipment</h1>
-<p><em>In development</em></p>
+<section id="supplies" class="level2">
+<h2 class="anchored" data-anchor-id="supplies">Supplies</h2>
 <ul>
-<li>make final track (generate map and summary info, 5 km spacing for Navy)</li>
-<li>create deployment plan</li>
-<li>set up pilot schedule</li>
-<li>run self tests before packing/shipping</li>
+<li>Laptop with Putty (or other terminal), WinSCP (optional), MATLAB, text editor</li>
 </ul>
+</section>
+<section id="task-list" class="level2">
+<h2 class="anchored" data-anchor-id="task-list">Task list</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"><a href="#review-any-pre-mission-self-test-files">Review self test files</a></label></li>
+<li><label><input type="checkbox"><a href="#prep-basestation">Prep basestation</a></label>
+<ul class="task-list">
+<li><label><input type="checkbox">Clean up old files</label></li>
+<li><label><input type="checkbox">Create new mission folder <em>(seaglider.pub only)</em></label></li>
+<li><label><input type="checkbox">Update <code>missions.yml</code> <em>(seaglider.pub only)</em></label></li>
+</ul></li>
+<li><label><input type="checkbox"><a href="#prep-and-upload-final-piloting-files">Prep and upload final piloting files</a></label>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>sg_calib_constants.m</code></label></li>
+<li><label><input type="checkbox"><code>cmdfile</code></label></li>
+<li><label><input type="checkbox"><code>science</code></label></li>
+<li><label><input type="checkbox"><code>targets</code></label></li>
+<li><label><input type="checkbox"><code>pmar.cnf</code> (if installed)</label></li>
+<li><label><input type="checkbox"><code>pagers.yml</code> (or <code>.pagers</code>)</label></li>
+<li><label><input type="checkbox"><code>pdoscmds.bat</code></label></li>
+</ul></li>
+<li><label><input type="checkbox"><a href="#set-up-local-file-structure">Set up local file structure</a></label></li>
+<li><label><input type="checkbox"><a href="#set-up-agate">Set up <em><strong>agate</strong></em></a></label>
+<ul class="task-list">
+<li><label><input type="checkbox">configuration file</label></li>
+<li><label><input type="checkbox">download script</label></li>
+</ul></li>
+</ul>
+</section>
+<section id="task-details" class="level2">
+<h2 class="anchored" data-anchor-id="task-details">Task details</h2>
+<section id="review-any-pre-mission-self-test-files" class="level3">
+<h3 class="anchored" data-anchor-id="review-any-pre-mission-self-test-files">Review any pre-mission self test files</h3>
+<ul>
+<li>Look for critical errors in the capture (<code>.cap</code>) file</li>
+<li>Review all loaded parameters (in the log file) and note those that need to be updated for a mission</li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+<section id="prep-basestation" class="level3">
+<h3 class="anchored" data-anchor-id="prep-basestation">Prep basestation</h3>
+<ul>
+<li>Connect to the basestation via WinSCP to view current status of basestation files. If old files are present or poorly organized, they need to be cleaned up!</li>
+</ul>
+<section id="basestation3seaglider.pub-prep" class="level4">
+<h4 class="anchored" data-anchor-id="basestation3seaglider.pub-prep">Basestation3/seaglider.pub prep</h4>
+<section id="if-there-are-old-files-to-be-moved-out-of-current" class="level5">
+<h5 class="anchored" data-anchor-id="if-there-are-old-files-to-be-moved-out-of-current">If there are old files to be moved out of current</h5>
+<ul>
+<li>Connect to <code>seaglider.pub</code> via command line</li>
+<li>Navigate to the glider’s home directory <em>e.g.</em>, <code>/home/jails/noaaosu/gliderjail/home/sg679</code></li>
+<li>Run</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>/opt/basestation/bin/python /usr/local/basestation3/MoveData.py -m &lt;currentLocation&gt; -t &lt;newLocation&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>&lt;currentLocation&gt;</code> is maybe <code>/home/jails/noaaosu/gliderjail/home/sgxxx</code> (the glider’s home directory) or a different folder</li>
+<li><code>&lt;newLocation&gt;</code> should be <code>/home/sgxxx/YYYY-MM-DD_deployment_location</code> or if it is just sim dives to be moved, <code>/home/sgxxx/YYYY-MM_DD_sim_dives</code></li>
+</ul>
+<p><strong>NOTE:</strong> I think this script <strong>does not</strong> move wisper files (<code>ws0001az.x00</code>, etc) and so those must be moved manually</p>
+</section>
+<section id="create-the-new-mission-directory" class="level5">
+<h5 class="anchored" data-anchor-id="create-the-new-mission-directory">Create the new mission directory</h5>
+<ul>
+<li>Connect to <code>seaglider.pub</code> via command line</li>
+<li>Navigate to the glider’s home directory <em>e.g.</em>, <code>/home/jails/noaaosu/gliderjail/home/sg679</code></li>
+<li>Run</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>&lt;newMissionFolderName&gt;</code> is the folder name that includes deployment date as <code>yyyy-mm-dd</code> the mission title string from <code>sg_calib_constants.m</code> that follows the format of <code>Location_MonYYYY</code> and both parts separated by an underscore - Example: <code>2024-08-23_CalCurCEAS_Aug2024</code> - This will copy general files from the home directory like <code>pagers.yml</code>, all the files that start with <code>.</code> that we don’t really use except <code>.pagers</code>, and piloting files like <code>science</code>, <code>cmdfile</code>, <code>targets</code> and <code>sg_calib_constants.m</code> - The originals also stay in the home directory but you now have a starting point for this particular mission</p>
+</section>
+<section id="add-the-mission-to-missions.yml" class="level5">
+<h5 class="anchored" data-anchor-id="add-the-mission-to-missions.yml">Add the mission to <code>missions.yml</code></h5>
+<ul>
+<li>Set up <code>missions.yml</code> to prep <code>seaglider.pub</code> vis
+<ul>
+<li>Navigate to the <code>/home/jails/noaaosu/gliderjail/home</code> folder</li>
+<li>Add the below under the <code>missions:</code> section, replacing the glider number, mission name, and path with the appropriate information. Note you must include the dash on the first line!</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  - </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    glider: 680</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    mission: CalCurCEAS_Sep2024</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    path: sg680/2024-09-14_CalCurCEAS_Sep2024</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    also: [ {asset: newport} ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+</section>
+<section id="osu-basestation-prep" class="level4">
+<h4 class="anchored" data-anchor-id="osu-basestation-prep">OSU basestation prep</h4>
+<p>By default the OSU basestation keeps all the current mission files in the home directory. So, before a new mission that home directory needs to be cleaned up and all those files need to be moved to a subdirectory for the previous mission</p>
+<ul>
+<li>Connect to the basestation via WinSCP to view current status of basestation files</li>
+<li>If old files are on there, need to clean them up!</li>
+<li>Create a subdirectory within that glider’s folder. Name based on date, mission, or selftests</li>
+<li>Move all old data in one step
+<ul>
+<li>Open terminal window to basestation and login with password</li>
+<li>Navigate to main directory by typing <code>cd /</code> and hitting <em>enter</em></li>
+<li>Type <code>usr/local/basestation/MoveData.py -m &lt;current data location&gt; -t &lt;new data location&gt;</code> into the terminal windown and hit <em>enter</em>
+<ul>
+<li><code>&lt;current location&gt;</code> is usually <code>/home/sgxxx</code></li>
+<li><code>&lt;new location&gt;</code> should be <code>/home/sgxxx/YYYY-MM-DD_deployment_location</code> (i.e., <code>/home/sg607/2023-04-25_deployment_MHI</code>)</li>
+<li>some text will print confirming it worked, and now <code>/home/sgxxx</code> will be mostly cleaned up and ready for new mission</li>
+<li>this script <strong>does not</strong> move wispr files (<code>ws0001az.x00</code>, etc) and so those must be moved manually</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+</section>
+<section id="prep-and-upload-final-piloting-files" class="level3">
+<h3 class="anchored" data-anchor-id="prep-and-upload-final-piloting-files">Prep and upload final piloting files</h3>
+<ul>
+<li><code>sg_calib_constants.m</code>
+<ul>
+<li>Change mission name and mass and update any calibration coefficients</li>
+<li>If not using basestation3, also update <code>rho0</code>, <code>volmax</code> and the hydrodynamic parameters</li>
+</ul></li>
+<li>Upload <code>cmdfile</code>
+<ul>
+<li>Check all params and update where needed for first short dive</li>
+</ul></li>
+<li>Check/update <code>science</code> (note format varies slightly for v66.12 or v67.0 gliders)</li>
+<li>Upload <code>targets</code></li>
+<li>Check <code>pmar.cnf</code> (if PMAR system only)</li>
+<li>Check/update <code>pagers.yml</code> (basestation3) or <code>.pagers</code> (OSU basestation)</li>
+<li>Check/update any <code>pdoscmds.bat</code> or create placeholders
+<ul>
+<li>Shouldn’t need one to start a mission but sometimes is useful to have a placeholder such as <code>pdoscmds.bat_target</code> that is loaded and ready to be copied/modified as needed</li>
+</ul></li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+<section id="set-up-local-file-structure" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-local-file-structure">Set up local file structure</h3>
+<ul>
+<li>Create a ‘mission’ folder on the desktop or somewhere else easily accessible for downloading any glider basestation or piloting files locally. Suggest naming by the glider and mission name <em>e.g.</em>, <code>sgxxx_mission_MonYYYY</code> to match the conventions used in <em><strong>agate</strong></em></li>
+<li>Either manually create the <code>basestationFiles</code> and <code>flightStatus</code> folders within this mission folder, or use <code>mkdir</code> in MATLAB to create them</li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+<section id="set-up-agate" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-agate">Set up <em><strong>agate</strong></em></h3>
+<ul>
+<li>Check for any updates to <em><strong>agate</strong></em> from GitHub, if you want to update it</li>
+<li>Set up a configuration file for this glider and mission</li>
+<li>Create a download script for easy downloading of basestation files to the local machine and generating some summary stats for the mission</li>
+<li>See <em><strong>agate</strong></em> documentation for more detail on these steps</li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -5366,18 +5463,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./accessing-piloting-tools.html" class="pagination-link" aria-label="piloting tools">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">piloting tools</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./launch-prep.html" class="pagination-link" aria-label="launch day prep">
-        <span class="nav-page-text">launch day prep</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -5386,7 +5471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
        
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sfregosi/seaglider-hub/edit/main/mission-prep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sfregosi/seaglider-hub/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sfregosi/seaglider-hub/edit/main/sim-dives.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sfregosi/seaglider-hub/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
