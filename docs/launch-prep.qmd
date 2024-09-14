@@ -55,7 +55,7 @@ engine: knitr
 ##### If there are old files to be moved out of current
 
 - Connect to `seaglider.pub` via command line
-- Navigate to the glider’s home directory *e.g.*, `/home/jails/noaaosu/gliderjail/home/sg679`
+- Navigate to the glider’s home directory *e.g.*, `/home/jails/noaaosu/gliderjail/home/sgxxx`
 - Run 
 
 ```default
@@ -65,7 +65,7 @@ engine: knitr
   - `<currentLocation>` is maybe `/home/jails/noaaosu/gliderjail/home/sgxxx` (the glider's home directory) or a different folder
   - `<newLocation>` should be `/home/sgxxx/YYYY-MM-DD_deployment_location` or if it is just sim dives to be moved, `/home/sgxxx/YYYY-MM_DD_sim_dives`
   
-**NOTE:** I think this script **does not** move wisper files (`ws0001az.x00`, etc) and so those must be moved manually
+**NOTE:** I think this script **does not** move wispr files (`ws0001az.x00`, etc) and so those must be moved manually
 
 ##### Create the new mission directory
 
