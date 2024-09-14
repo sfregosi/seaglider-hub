@@ -43,6 +43,8 @@ website:
             text: midsurvey piloting process
           - href: sg-menu-guide.qmd
             text: seaglider menu guide
+          - href: sim-dives.qmd
+            text: sim dives
             
   page-footer:
     right: 'This page is built with [Quarto](https://quarto.org/).'
