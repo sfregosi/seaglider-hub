@@ -143,7 +143,7 @@ Via command line
 `resend_dives /c <diveNumber>`
 
 where `/c` indicates a capture file and `<diveNumber>` is the number of the dive you want to send (*e.g.*, `5`).
-- The command can be repeated on multiple lines to send more than one dive. But, capture files are often quite large and so sending more than one can mean the glider sits at the surface for 10s of minutes and if it gets interupted partway through processing the `pdoscmds.bat` file it will have to start over. A better approach is to upload one `pdoscmds.bat` for a single file, after that is done loading, send another one with the next file, just holding the glider at the surface between using `$QUIT`
+- The command can be repeated on multiple lines to send more than one dive. But, capture files are often quite large and so sending more than one can mean the glider sits at the surface for 10s of minutes and if it gets interrupted partway through processing the `pdoscmds.bat` file it will have to start over. A better approach is to upload one `pdoscmds.bat` for a single file, after that is done loading, send another one with the next file, just holding the glider at the surface between using `$QUIT`
 
 
 #### What to do

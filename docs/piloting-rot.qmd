@@ -40,11 +40,11 @@ engine: knitr
 
 What do each of these plots show, and what should you change based on what the plots show?
 
-![Screenshot of the Seaglider Piloting Tools GUI (called in Matlab with `DiveData`).](../img/screenshot_divedata_gui.png){#screenshot-divedata-gui .Figure fig-align="center" width="600"}
+![Screenshot of the Seaglider Piloting Tools GUI (called in Matlab with `DiveData`).](img/screenshot_divedata_gui.png){#screenshot-divedata-gui .Figure fig-align="center" width="600"}
 
 Select the number of the dive you'd like to plot data for in the Dive Numbers section. Select which plots in the 'Plot Selection' section. Our gliders don't have an 02, Fluorometer, Backscatter, PAR, or NTU sensor so we don't need to plot those. Suggested 'Plot Options' are to check 'Auto-tile Plots', but do not check 'Auto-save Plots' or 'Auto-close Plots' because it will save them at the very small tiled size. Press the 'Generate Plots' button to create plots. To generate the entire mission's track in Google Earth, highlight all dives in the 'Dive Numbers' section (hold shift and select first and last dives) and press the 'Show Track' button.
 
-![Diagram showing the values of AD counts and how the correspond to changes in pitch, roll, and buoyancy.](../img/ad_counts_diagram.png){#ad-counts-diagram .Figure fig-align="center" width="600"}
+![Diagram showing the values of AD counts and how the correspond to changes in pitch, roll, and buoyancy.](img/ad_counts_diagram.png){#ad-counts-diagram .Figure fig-align="center" width="600"}
 
 ### Diveplot
 
@@ -64,9 +64,9 @@ Very generally...
 
 \*this rule of thumb is from Anatoli/Steve. I think we are supposed to use the W vs VBD line in the diveplot first.
 
-![**Example Diveplot.** Zoomed out showing the full dive duration.](../img/screenshot_diveplot_example2.png){#screenshot-diveplot-example2 .Figure fig-align="center" width="800"}
+![**Example Diveplot.** Zoomed out showing the full dive duration.](img/screenshot_diveplot_example2.png){#screenshot-diveplot-example2 .Figure fig-align="center" width="800"}
 
-![**Example Diveplot.** Zoomed in to apogee time (where blue W line crosses y = 0). Blue W line crosses y=0 just before black VBD line crosses. When blue W line crosses y=0, black VBD line is nearly to y=0 (not even 1 unit below) so would not change `$C_VBD` for this glider.](../img/screenshot_diveplot_example1.png){#screenshot-diveplot-example1 .Figure fig-align="center" width="800"}
+![**Example Diveplot.** Zoomed in to apogee time (where blue W line crosses y = 0). Blue W line crosses y=0 just before black VBD line crosses. When blue W line crosses y=0, black VBD line is nearly to y=0 (not even 1 unit below) so would not change `$C_VBD` for this glider.](img/screenshot_diveplot_example1.png){#screenshot-diveplot-example1 .Figure fig-align="center" width="800"}
 
 ### Pitch
 
@@ -84,7 +84,7 @@ Compare the set `$PITCH_GAIN` and the multiplier for Pitch Control (in units of 
 
 -   E.g., if `$PITCH_GAIN` is 26 and the multiplier is suggesting 20, change `$PITCH_GAIN` to 23
 
-![**Example pitch plot.** `$C_PITCH` (3016) and Implied Pitch Center (3009) are within 10 of each other so I would not make a change, since it would likely not make any difference and it's varied from dive to dive over the last several dives. If the trend is consistent after a few dives, I might think about changing it. `$PITCH_GAIN` (19) and the Pitch Control multiplier (18.8) are the same so would not change.](../img/screenshot_pitch_plot_example.png){#screenshot-pitch-plot-example .Figure fig-align="center"}
+![**Example pitch plot.** `$C_PITCH` (3016) and Implied Pitch Center (3009) are within 10 of each other so I would not make a change, since it would likely not make any difference and it's varied from dive to dive over the last several dives. If the trend is consistent after a few dives, I might think about changing it. `$PITCH_GAIN` (19) and the Pitch Control multiplier (18.8) are the same so would not change.](img/screenshot_pitch_plot_example.png){#screenshot-pitch-plot-example .Figure fig-align="center"}
 
 ### Roll and Roll Rate
 
@@ -102,9 +102,9 @@ Compare set values for `$C_ROLL_DIVE` and `$C_ROLL_CLIMB` to the Implied `$C_ROL
 
 -   If the direction of change across the two plots are contradictory, do not make any changes and monitor over the next few dives to look for consistent patterns
 
-![**Example Roll plot.** This plot suggests decreasing `$C_ROLL_DIVE` and increasing `$C_ROLL_CLIMB` by just a little bit but the plot generally looks good.](../img/screenshot_roll_plot_example.png){#screenshot-roll-plot-example .Figure fig-align="center"}
+![**Example Roll plot.** This plot suggests decreasing `$C_ROLL_DIVE` and increasing `$C_ROLL_CLIMB` by just a little bit but the plot generally looks good.](img/screenshot_roll_plot_example.png){#screenshot-roll-plot-example .Figure fig-align="center"}
 
-![**Example Roll Rate plot.** This plot suggests increasing `$C_ROLL_DIVE` and decreasing `$C_ROLL_CLIMB` but the plot generally looks good.](../img/screenshot_roll_rate_example.png){#screenshot-roll-rate-example .Figure fig-align="center"}
+![**Example Roll Rate plot.** This plot suggests increasing `$C_ROLL_DIVE` and decreasing `$C_ROLL_CLIMB` but the plot generally looks good.](img/screenshot_roll_rate_example.png){#screenshot-roll-rate-example .Figure fig-align="center"}
 
 So in this case, do not adjust either parameter.
 
@@ -173,4 +173,4 @@ Some notes on the more "complicated" cmdfile parameters we use
 
 This defines what the glider should do if it cannot make a complete call during a surfacing. The input is an integer; the integer is chosen as the binary value for up to 9 settings. Typically we use 259 (or 100 000 011) or 3 (11).
 
-![Integer-to-binary-to-integer conversion notes for properlly setting `$NOCOMM_ACTION`.](../img/binary_integer_conversions.png){#binary-integer-conversions .Figure fig-align="center" width="300"}
+![Integer-to-binary-to-integer conversion notes for properlly setting `$NOCOMM_ACTION`.](img/binary_integer_conversions.png){#binary-integer-conversions .Figure fig-align="center" width="300"}

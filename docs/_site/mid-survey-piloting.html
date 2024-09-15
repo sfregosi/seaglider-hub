@@ -4729,6 +4729,12 @@ vertical-align: -.125em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./launch-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">launch day prep</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./piloting-rot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">piloting rules of thumb</span></a>
   </div>
@@ -4743,6 +4749,12 @@ vertical-align: -.125em;
   <div class="sidebar-item-container"> 
   <a href="./sg-menu-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">seaglider menu guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sim-dives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">sim dives</span></a>
   </div>
 </li>
       </ul>
@@ -4783,10 +4795,16 @@ vertical-align: -.125em;
   <li><a href="#background-4" id="toc-background-4" class="nav-link" data-scroll-target="#background-4">Background</a></li>
   <li><a href="#what-to-do-4" id="toc-what-to-do-4" class="nav-link" data-scroll-target="#what-to-do-4">What to do</a></li>
   </ul></li>
-  <li><a href="#changing-pmar-activecard" id="toc-changing-pmar-activecard" class="nav-link" data-scroll-target="#changing-pmar-activecard">CHANGING PMAR ACTIVECARD</a>
+  <li><a href="#send-a-capture-file" id="toc-send-a-capture-file" class="nav-link" data-scroll-target="#send-a-capture-file">SEND A CAPTURE FILE</a>
   <ul>
   <li><a href="#background-5" id="toc-background-5" class="nav-link" data-scroll-target="#background-5">Background</a></li>
   <li><a href="#what-to-do-5" id="toc-what-to-do-5" class="nav-link" data-scroll-target="#what-to-do-5">What to do</a></li>
+  <li><a href="#what-to-do-6" id="toc-what-to-do-6" class="nav-link" data-scroll-target="#what-to-do-6">What to do</a></li>
+  </ul></li>
+  <li><a href="#changing-pmar-activecard" id="toc-changing-pmar-activecard" class="nav-link" data-scroll-target="#changing-pmar-activecard">CHANGING PMAR ACTIVECARD</a>
+  <ul>
+  <li><a href="#background-6" id="toc-background-6" class="nav-link" data-scroll-target="#background-6">Background</a></li>
+  <li><a href="#what-to-do-7" id="toc-what-to-do-7" class="nav-link" data-scroll-target="#what-to-do-7">What to do</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sfregosi/seaglider-hub/edit/main/mid-survey-piloting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/sfregosi/seaglider-hub/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -4815,7 +4833,7 @@ vertical-align: -.125em;
 
 <section id="topic-what-to-look-for-when-maintaining-successful-glider-flight-post-trimmingmid-survey" class="level5">
 <h5 class="anchored" data-anchor-id="topic-what-to-look-for-when-maintaining-successful-glider-flight-post-trimmingmid-survey">Topic: What to look for when maintaining successful glider flight post-trimming/mid-survey</h5>
-<p><em>Last Updated 2024-09-13</em></p>
+<p><em>Last Updated 2024-09-15</em></p>
 <hr>
 </section>
 <section id="errors" class="level3">
@@ -4945,17 +4963,51 @@ E.g., <code>resend_dive /l 45</code></li>
 </ul>
 <p><sub><a href="#">Back to top</a></sub></p>
 <hr>
+<hr>
+</section>
+</section>
+<section id="send-a-capture-file" class="level3">
+<h3 class="anchored" data-anchor-id="send-a-capture-file">SEND A CAPTURE FILE</h3>
+<section id="background-5" class="level4">
+<h4 class="anchored" data-anchor-id="background-5">Background</h4>
+<p>Use <code>pdoscmds.bat</code> to send a capture file for a previous dive. This is useful if you want to dig into some sort of error or issue but the error wasn’t critical so it didn’t automatically send a capture file. The approach is similar to when there are file conversion problems.</p>
+</section>
+<section id="what-to-do-5" class="level4">
+<h4 class="anchored" data-anchor-id="what-to-do-5">What to do</h4>
+<p>Via command line - Navigate to your user directory - Create a <code>pdoscmds.bat</code> file or open an existing one to modify using:</p>
+<p><code>vi pdoscmds.bat</code></p>
+<ul>
+<li>The file should contain the following text</li>
+</ul>
+<p><code>resend_dives /c &lt;diveNumber&gt;</code></p>
+<p>where <code>/c</code> indicates a capture file and <code>&lt;diveNumber&gt;</code> is the number of the dive you want to send (<em>e.g.</em>, <code>5</code>). - The command can be repeated on multiple lines to send more than one dive. But, capture files are often quite large and so sending more than one can mean the glider sits at the surface for 10s of minutes and if it gets interrupted partway through processing the <code>pdoscmds.bat</code> file it will have to start over. A better approach is to upload one <code>pdoscmds.bat</code> for a single file, after that is done loading, send another one with the next file, just holding the glider at the surface between using <code>$QUIT</code></p>
+</section>
+<section id="what-to-do-6" class="level4">
+<h4 class="anchored" data-anchor-id="what-to-do-6">What to do</h4>
+<ul>
+<li>Manually resend the missed files using pdoscmds.bat
+<ul>
+<li>Create <em>pdoscmds.bat</em> file on local machine. Name MUST be just <em>pdoscmds.bat</em></li>
+<li>Should contain text (no brackets): <code>resend_dive /[filetypeletter] [divenumber]</code><br>
+E.g., <code>resend_dive /l 45</code></li>
+<li>Drag local <em>pdoscmds.bat</em> to basestation</li>
+</ul></li>
+<li>After <em>pdoscmds.bat</em> has been picked up on the next dive, delete it</li>
+<li>There are example <em>pdoscmds.bat</em> files on the basestation and in the seaglider-resources repository in the <a href="https://github.com/sfregosi/seaglider-resources/tree/main/ext/example_piloting_files"><em>ext/example_piloting_files folder</em></a>; they are named as the main file name but labeled for use with *_exampleInfo*. Copy the text in these as a starting point for pdoscmds.bat use</li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+<hr>
 </section>
 </section>
 <section id="changing-pmar-activecard" class="level3">
 <h3 class="anchored" data-anchor-id="changing-pmar-activecard">CHANGING PMAR ACTIVECARD</h3>
-<section id="background-5" class="level4">
-<h4 class="anchored" data-anchor-id="background-5">Background</h4>
+<section id="background-6" class="level4">
+<h4 class="anchored" data-anchor-id="background-6">Background</h4>
 <p>As the SD cards storing the PMAR acoustic data fill up, it is best to manually switch to the next card to avoid any gaps in recording. PMAR will automatically switch to the next card when one fills up, but if the first card fills part of the way through a dive, the switch will not be made until the next dive so the rest of that dive will not have any recordings. This could lead to gaps of no more than 5-6 hours, so is not terrible but should be avoided if possible.<br>
 The switch to the next card does not happen at exactly 100% capacity; instead UW suggests not letting the cards fill past 93% capacity. For our current setup, that means when there is 35 GB or less free space remaining. The Battery and Free Space plots generated by the downloading script has a dashed horizontal line at this 35 GB cut off. The cards are numbered starting with 0, so with 4 cards, they are labeled as cards 0, 1, 2, and 3</p>
 </section>
-<section id="what-to-do-5" class="level4">
-<h4 class="anchored" data-anchor-id="what-to-do-5">What to do</h4>
+<section id="what-to-do-7" class="level4">
+<h4 class="anchored" data-anchor-id="what-to-do-7">What to do</h4>
 <ul>
 <li>Monitor remaining free space and when there is about 70 GB remaining. Each dive uses up 5-7 GB of data, so this gives about 5-7 dives/24 hours to plan ahead.</li>
 <li>Project forward based on current use levels and identify which dive will end with near 35 GB free space remaining.</li>
