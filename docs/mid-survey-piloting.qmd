@@ -122,6 +122,44 @@ A full list of pdoscmds.bat commands can be found in the [Extended PicoDOS Refer
 
 ---
 
+---
+
+### SEND A CAPTURE FILE
+
+#### Background
+
+Use `pdoscmds.bat` to send a capture file for a previous dive. This is useful if you want to dig into some sort of error or issue but the error wasn't critical so it didn't automatically send a capture file. The approach is similar to when there are file conversion problems. 
+
+#### What to do
+
+Via command line
+- Navigate to your user directory
+- Create a `pdoscmds.bat` file or open an existing one to modify using:
+
+`vi pdoscmds.bat`
+
+- The file should contain the following text
+
+`resend_dives /c <diveNumber>`
+
+where `/c` indicates a capture file and `<diveNumber>` is the number of the dive you want to send (*e.g.*, `5`).
+- The command can be repeated on multiple lines to send more than one dive. But, capture files are often quite large and so sending more than one can mean the glider sits at the surface for 10s of minutes and if it gets interupted partway through processing the `pdoscmds.bat` file it will have to start over. A better approach is to upload one `pdoscmds.bat` for a single file, after that is done loading, send another one with the next file, just holding the glider at the surface between using `$QUIT`
+
+
+#### What to do
+
+-   Manually resend the missed files using pdoscmds.bat
+    -   Create *pdoscmds.bat* file on local machine. Name MUST be just *pdoscmds.bat*
+    -   Should contain text (no brackets): `resend_dive /[filetypeletter] [divenumber]`\
+        E.g., `resend_dive /l 45`
+    -   Drag local *pdoscmds.bat* to basestation
+-   After *pdoscmds.bat* has been picked up on the next dive, delete it
+-   There are example *pdoscmds.bat* files on the basestation and in the seaglider-resources repository in the [*ext/example_piloting_files folder*](https://github.com/sfregosi/seaglider-resources/tree/main/ext/example_piloting_files); they are named as the main file name but labeled for use with \*\_exampleInfo\*. Copy the text in these as a starting point for pdoscmds.bat use
+
+<sub>[Back to top](#)</sub>
+
+---
+
 ### CHANGING PMAR ACTIVECARD
 
 #### Background
