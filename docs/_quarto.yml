@@ -8,7 +8,7 @@ website:
   title: 'seaglider-hub'
   repo-url: "https://github.com/sfregosi/seaglider-hub"
   repo-actions: [edit, issue]
-  # favicon: images/favicon.ico
+  favicon: img/beaverAthletics.png
   
   sidebar:
     title: 'seaglider hub'
@@ -36,7 +36,7 @@ website:
           - href: mission-prep.qmd
             text: mission preparation
           - href: launch-prep.qmd
-            text: launch day prep
+            text: pre-launch day prep
           - href: piloting-rot.qmd
             text: piloting rules of thumb
           - href: mid-survey-piloting.qmd

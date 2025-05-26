@@ -1,16 +1,15 @@
 ---
-title: "Launch day preparation"
+title: "Pre-launch day preparation"
 format: html
 search: false
 engine: knitr
 ---
 
-##### Topic: Checklist of steps and detailed instructions for final preparations before mission launch day
+##### Topic: Checklist of steps and detailed instructions for final preparations to complete before mission launch day
 
 *Last Updated `{r} Sys.Date()`*
 
 ---
-
 
 *This process, particularly prepping the basestation and some file formats, looks different if using the OSU basestation or seaglider.pub/basestation3. These differences are noted in the task list details below*
 
@@ -18,8 +17,18 @@ engine: knitr
 
 - Laptop with Putty (or other terminal), WinSCP (optional), MATLAB, text editor
 
+## Goals
+
+- Review pre-shipment and any other self test files
+- Prep basestation with mission folder and final piloting files
+- Set up local desktop file storage
+- Set up __*agate*__ configuration files
+
 ## Task list
-- [ ] [Review self test files](#review-any-pre-mission-self-test-files)
+
+*(an editable version of this task list can be found in the [Mission Prep Task List - TEMPLATE](https://docs.google.com/document/d/1TMXsop5GJW_rMxrP8zSuazALNi_j8nHq24RIIzfw7_A/))*
+
+- [ ] [Review self test files](#review-any-pre-launch-day-self-tests)
 - [ ] [Prep basestation](#prep-basestation)
   - [ ] Clean up old files
   - [ ] Create new mission folder *(seaglider.pub only)*
@@ -37,67 +46,100 @@ engine: knitr
   - [ ] configuration file 
   - [ ] download script
 
+
+
 ## Task details
 
-### Review any pre-mission self test files
+### Review any pre-launch day self tests
 
-- Look for critical errors in the capture (`.cap`) file
-- Review all loaded parameters (in the log file) and note those that need to be updated for a mission
+Any pre-shipment self tests should have already been reviewed but it is helpful to review again and use the outputs to prep the intial `cmdfile` with new trim centers, intial dive depth, etc. 
+
+- Look for critical errors or warnings 
+  - If using `seaglider.pub` review the online report, otherwise review the capture file (`.cap`)
+- Review all loaded parameters (in the `.log` file) and note those that need to be updated for a mission
 
 <sub>[Back to top](#)</sub>
 
+
 ### Prep basestation
 
-- Connect to the basestation via WinSCP to view current status of basestation files. If old files are present or poorly organized, they need to be cleaned up!
+Connect to the basestation via SSH terminal or WinSCP to view current status of basestation files. Previous mission files may need to be cleaned up and a new mission folder needs to be set up. Specific instructions are different for `seaglider.pub`/`basestation3` and the OSU Basestation. 
 
-#### Basestation3/seaglider.pub prep
 
-##### If there are old files to be moved out of current
+#### seaglider.pub/basestation3 basestation prep
 
-- Connect to `seaglider.pub` via command line
-- Navigate to the glider’s home directory *e.g.*, `/home/jails/noaaosu/gliderjail/home/sgxxx`
-- Run 
+- Connect to `seaglider.pub` via terminal (see [Command Line Guide](https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE) for help with the command line)
+- Navigate to the glider's home directory `/home/jails/noaaosu/gliderjail/home/SGxxx`
+- All piloting files from the last mission should be in a mission-specific folder (named with `YYYY-MM-DD_location_MonYear`) that is also mapped as the current folder
+   - Check the current folder with the command `ls -la` from the home directory. This will display all files with details and the current folder will be listed with `->` with the folder it is currently mapped to
+- If there are mission-specific piloting files (e.g. `baselog`, `p######.log`, `.nc`, etc.) those need to be moved using `MoveData.py` (this is unlikely as it was the old approach) BEFORE setting up the new mission or they may be overwritten
 
-```default
-/opt/basestation/bin/python /usr/local/basestation3/MoveData.py -m <currentLocation> -t <newLocation>
-```
+::: {.callout-caution collapse="true"}
 
-  - `<currentLocation>` is maybe `/home/jails/noaaosu/gliderjail/home/sgxxx` (the glider's home directory) or a different folder
-  - `<newLocation>` should be `/home/sgxxx/YYYY-MM-DD_deployment_location` or if it is just sim dives to be moved, `/home/sgxxx/YYYY-MM_DD_sim_dives`
+##### Old mission files need to be moved with `MoveData.py`
+
+*(only if `NewMission.py` was NOT used to set up the previous mission)*
+
+- Navigate to the glider’s home directory *e.g.*, `/home/jails/noaaosu/gliderjail/home/SGxxx` or the folder with the files to be moved
+- Run `basepy MoveData.py -m <currentLocation> -t <newLocation>`
+   - `<currentLocation>` is the location of the files to be moved. Use `.` if you are in the home directory. Alternatively it can be specified as the full path to `/home/jails/noaaosu/gliderjail/home/sgxxx` (the glider's home directory) or a different folder
+   - `<newLocation>` should be `YYYY-MM-DD_deployment_location` or if it is just sim dives to be moved, `YYYY-MM_DD_sim_dives`. Path only has to be specified relative to the present working directory 
   
 **NOTE:** I think this script **does not** move wispr files (`ws0001az.x00`, etc) and so those must be moved manually
+:::
+
 
 ##### Create the new mission directory
 
-- Connect to `seaglider.pub` via command line
-- Navigate to the glider’s home directory *e.g.*, `/home/jails/noaaosu/gliderjail/home/sg679`
-- Run 
+- Navigate to the glider’s home directory *e.g.*, `/home/jails/noaaosu/gliderjail/home/sgXXX`
+- Use `NewMission.py` to create a new folder for this specific mission
+   - The function will set up the mapping of the `current` folder so all newly created piloting files will be saved here when the glider calls in
+   - It will also copy general files from the home directory like `pagers.yml`, all the files that start with `.` that we don’t really use except `.pagers`, and piloting files like `science`, `cmdfile`, `targets` and `sg_calib_constants.m`. The originals stay in the home directory but this provides a starting point for this particular mission
+- To run the function use: 
+
 ```default
+basepy NewMission.py ./ <newMissionFolderName>
+
+# note the above uses seaglider.pub's shortcut to map full python paths
+# alternatively could use full paths
 /opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ <newMissionFolderName>
 ``` 
-where `<newMissionFolderName>` is the folder name that includes deployment date as `yyyy-mm-dd` the mission title string from `sg_calib_constants.m` that follows the format of `Location_MonYYYY` and both parts separated by an underscore
-  - Example: `2024-08-23_CalCurCEAS_Aug2024`
-- This will copy general files from the home directory like `pagers.yml`, all the files that start with `.` that we don’t really use except `.pagers`, and piloting files like `science`, `cmdfile`, `targets` and `sg_calib_constants.m`
-- The originals also stay in the home directory but you now have a starting point for this particular mission
+
+   - `<newMissionFolderName>` is the folder name that includes deployment date as `yyyy-mm-dd` the mission title string from `sg_calib_constants.m` that follows the format of `Location_MonYYYY` and both parts separated by an underscore
+      - Example: `2024-08-23_CalCurCEAS_Aug2024`
+- Check that it was set up properly by running `ls -la` from the home directory
 
 ##### Add the mission to `missions.yml`
 
-- Set up `missions.yml` to prep `seaglider.pub` vis
-  - Navigate to the `/home/jails/noaaosu/gliderjail/home` folder
-  - Add the below under the `missions:` section, replacing the glider number, mission name, and path with the appropriate information. Note you must include the dash on the first line!
+Update the `missions.yml` to properly display this mission on the `seaglider.pub` vis
+
+The syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes
+- Navigate to your user folder (`/home/jails/noaaosu/username`) and use `cp ../gliderjail/home/missions.yml missions.orig` to create a backup of the existing `missions.yml` in your user directory 
+
+- Navigate to `/home/jails/noaaosu/gliderjail/home` 
+- Open `missions.yml` for editing (using vi or nano)
+- Copy the previous mission to the `# past missions` section if needed
+  - Mark the previous mission as complete by adding the line `status: complete`
+- Update the mission name and folder path in the `# current missions` section
+
+Example syntax
   
 ```default
+# long form
   - 
     glider: 680
     mission: CalCurCEAS_Sep2024
     path: sg680/2024-09-14_CalCurCEAS_Sep2024
     also: [ {asset: newport} ]
+    
+# condensed
+  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}
 ```
 <sub>[Back to top](#)</sub>
 
-#### OSU basestation prep
+#### OSU basestation prep - _**OBSOLETE**_
 
-By default the OSU basestation keeps all the current mission files in the home directory. So, before a new mission that home directory needs to be cleaned up and all those files need to be moved to a subdirectory for the previous mission
+By default the OSU basestation keeps all the current mission files in the home directory. So, before a new mission that home directory needs to be cleaned up and all those files need to be moved to a subdirectory for the previous mission.
 
 - Connect to the basestation via WinSCP to view current status of basestation files
 - If old files are on there, need to clean them up!
@@ -113,35 +155,43 @@ By default the OSU basestation keeps all the current mission files in the home d
     - this script **does not** move wispr files (`ws0001az.x00`, etc) and so those must be moved manually
   
 <sub>[Back to top](#)</sub>  
+
+
     
 ### Prep and upload final piloting files
+
+Review the below files and upload them to the current mission folder. These can either be edited directly via the command line (using either `vi` or `nano` editors if using `seaglider.pub`) or by downloading and re-uploading manually using WinSCP. See the [Command Line Guide](https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE) for help with the command line. 
+
 - `sg_calib_constants.m`
   - Change mission name and mass and update any calibration coefficients
   - If not using basestation3, also update `rho0`, `volmax` and the hydrodynamic parameters
+- `sg_plot_constants.m`
+  - Set vis map figure lat/lon extents
 - Upload `cmdfile`
   - Check all params and update where needed for first short dive
 - Check/update `science` (note format varies slightly for v66.12 or v67.0 gliders)
 - Upload `targets`
+  - For help creating a targets file, see the [Mission planning](https://sfregosi.github.io/agate/mission-planning.html) page of the __*agate*__ documentation
 - Check `pmar.cnf` (if PMAR system only)
 - Check/update `pagers.yml` (basestation3) or `.pagers` (OSU basestation)
 - Check/update any `pdoscmds.bat` or create placeholders
-  - Shouldn't need one to start a mission but sometimes is useful to have a placeholder such as `pdoscmds.bat_target` that is loaded and ready to be copied/modified as needed
+  - Shouldn't need one to start a mission but sometimes is useful to have a placeholder such as `pdoscmds.bat_target` that is loaded and ready to be copied/modified as needed. Examples of these can be stored in your user directory and copied into the specific glider's mission folder
   
 <sub>[Back to top](#)</sub>
 
 ### Set up local file structure
 
-- Create a 'mission' folder on the desktop or somewhere else easily accessible for downloading any glider basestation or piloting files locally. Suggest naming by the glider and mission name *e.g.*, `sgxxx_mission_MonYYYY` to match the conventions used in *__agate__*
+- Create a 'mission' folder on the desktop or somewhere else easily accessible for downloading any glider basestation or piloting files locally. Suggest naming by the glider and mission name *e.g.*, `sgxxx_mission_MonYYYY` to match the conventions used in __*agate*__
 - Either manually create the  `basestationFiles` and `flightStatus` folders within this mission folder, or use `mkdir` in MATLAB to create them
 
 <sub>[Back to top](#)</sub>
 
-### Set up *__agate__*
+### Set up __*agate*__
 
-- Check for any updates to *__agate__* from GitHub, if you want to update it
+- Check for any updates to __*agate*__ from GitHub ([https://github.com/sfregosi/agate](https://github.com/sfregosi/agate)), if desired
 - Set up a configuration file for this glider and mission
 - Create a download script for easy downloading of basestation files to the local machine and generating some summary stats for the mission
-- See *__agate__* documentation for more detail on these steps
+- See __*agate*__ documentation for more detail on these steps
 
 <sub>[Back to top](#)</sub>
 

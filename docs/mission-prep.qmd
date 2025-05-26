@@ -9,14 +9,63 @@ engine: knitr
 
 *Last Updated `{r} Sys.Date()`*
 
+*In development*
+
 ---
+
+Interactive/editable templates for these steps are on Google Drive:
+
+[Mission Preparation - Before Shipment](https://docs.google.com/document/d/1CIUB0u7LaZI48ruc01Uh3IC5XkYeM506F275pBj9KHs)  
+[Mission Preparation - Day of Launch [SEAGLIDER.PUB]](https://docs.google.com/document/d/1eBzj_MTRCjQEaUiLS83xYCYCFLqGnYpvXGuEbmiqI94)  
+[Mission Preparation - Day of Launch [OSU BASESTATION]](https://docs.google.com/document/d/1-Pl2J0hNGdGZw5fSmIeX_3IbCheq8LhmxvdEg9QeSlQ)  
+
+
+# Survey planning
+
+- [ ] Draft survey plans
+- [ ] Make final track (generate map and summary info, generate `targets` file, generate CSV of planned survey at 5 km resolution for Navy)
+- [ ] Draft deployment plan
+- [ ] Arrange insurance
+- [ ] Arrange shipping (pickup, storage on arrival, hazmat paperwork)
+- [ ] Draft pilot schedule
 
 # Before shipment
 
-*In development*
+- [ ] Complete refurbishment and bench tests of any new sensors
+- [ ] Update `sg_calib_constants.m` with any mass or calibration changes from refurbishment
+- [ ] Complete tank ballasting procedure to get approximate centers and check buoyancy
+- [ ] Review final packing list and pack crates
+- [ ] Complete and review a pre-shipment self test (either run this with the refurbishment mission or with the upcoming mission set on the basestation)
 
-- make final track (generate map and summary info, 5 km spacing for Navy)
-- create deployment plan
-- set up pilot schedule
-- run self tests before packing/shipping
+# Before launch day
 
+For detail on each of these tasks see the [Pre-launch day preparation](launch-prep.qmd) page.
+
+*(an editable version of this task list can be found in the [Mission Prep Task List - TEMPLATE](https://docs.google.com/document/d/1TMXsop5GJW_rMxrP8zSuazALNi_j8nHq24RIIzfw7_A/))*
+
+- [ ] [Review self test files](launch-prep.qmd#review-any-pre-launch-day-self-tests)
+- [ ] [Prep basestation](launch-prep.qmd#prep-basestation)
+  - [ ] Clean up old files *(likely OSU basestation only)*
+  - [ ] Create new mission folder *(seaglider.pub only)*
+  - [ ] Update `missions.yml` *(seaglider.pub only)*
+- [ ] [Prep and upload final piloting files](launch-prep.qmd#prep-and-upload-final-piloting-files)
+  - [ ] `sg_calib_constants.m`
+  - [ ] `cmdfile`
+  - [ ] `science`
+  - [ ] `targets`
+  - [ ] `pmar.cnf` (if installed)
+  - [ ] `pagers.yml` (or `.pagers`)
+  - [ ] `pdoscmds.bat`
+- [ ] [Set up local file structure](launch-prep.qmd#set-up-local-file-structure)
+- [ ] [Set up *__agate__*](launch-prep.qmd#set-up-agate)
+  - [ ] configuration file 
+  - [ ] download script
+- [ ] Create pilot log
+
+# Day of launch
+
+More coming soon....
+
+- [ ] Create pilot log
+
+[PILOT LOG TEMPLATE](https://docs.google.com/document/d/1ysiE7-vAHuyaVXws5sd3mtYQHKtD2SEsgwI-QIn-FXU)
