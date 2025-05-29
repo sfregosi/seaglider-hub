@@ -35,11 +35,13 @@ engine: knitr
   - [ ] Update `missions.yml` *(seaglider.pub only)*
 - [ ] [Prep and upload final piloting files](#prep-and-upload-final-piloting-files)
   - [ ] `sg_calib_constants.m`
+  - [ ] `sg_plot_constants.m`
   - [ ] `cmdfile`
   - [ ] `science`
   - [ ] `targets`
   - [ ] `pmar.cnf` (if installed)
   - [ ] `pagers.yml` (or `.pagers`)
+  - [ ] `sections.yml`
   - [ ] `pdoscmds.bat`
 - [ ] [Set up local file structure](#set-up-local-file-structure)
 - [ ] [Set up *__agate__*](#set-up-agate)
